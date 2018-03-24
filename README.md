@@ -9,6 +9,6 @@ To format code `mix format`
 ## Components
 
 - [Coordinate](coordinate.md)
-- [Guess](guess.md)
+- [Guesses](guesses.md)
 - [Island](island.md)
 - Board

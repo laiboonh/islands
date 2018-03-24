@@ -5,9 +5,8 @@ defmodule IslandsEngine.Island do
   defstruct [:coordinates, :hit_coordinates]
 
   def new(type, %Coordinate{} = upper_left) do
-    with [_|_] = offsets <- offsets(type),
-         %MapSet{} = coordinates <- add_coordinates(offsets, upper_left)
-    do
+    with [_ | _] = offsets <- offsets(type),
+         %MapSet{} = coordinates <- add_coordinates(offsets, upper_left) do
       {:ok, %Island{coordinates: coordinates, hit_coordinates: MapSet.new()}}
     else
       error -> error
