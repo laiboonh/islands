@@ -11,3 +11,4 @@ To format code `mix format`
 - [Coordinate](coordinate.md)
 - [Guess](guess.md)
 - [Island](island.md)
+- Board
