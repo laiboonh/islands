@@ -6,4 +6,5 @@ To run using iex `iex -S mix`
 
 ## Components
 
-[Coordinate](coordinate.md)
+- [Coordinate](coordinate.md)
+- [Guess](guess.md)
