@@ -4,6 +4,5 @@ defmodule IslandsEngine.Guess do
   @enforce_keys [:hits, :misses]
   defstruct [:hits, :misses]
 
-  def new(), do:
-    %Guess{hits: MapSet.new(), misses: MapSet.new()}
-end  
+  def new(), do: %Guess{hits: MapSet.new(), misses: MapSet.new()}
+end
