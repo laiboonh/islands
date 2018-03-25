@@ -49,7 +49,7 @@ iex(9)> GenServer.call(pid, :demo_call)
 ```
 
 # Cast
-```
+```elixir
 def handle_cast({:demo_cast, new_value}, state) do
   {:noreply, Map.put(state, :test, new_value)}
 end
