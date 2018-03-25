@@ -12,3 +12,4 @@ To format code `mix format`
 - [Guesses](guesses.md)
 - [Island](island.md)
 - Board
+- Rules

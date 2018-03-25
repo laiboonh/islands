@@ -21,14 +21,15 @@ defmodule IslandsEngine.Island do
       true ->
         hit_coordinates = MapSet.put(island.hit_coordinates, coordinate)
         {:hit, %{island | hit_coordinates: hit_coordinates}}
-      false -> :miss 
+
+      false ->
+        :miss
     end
-  end  
+  end
 
   def types(), do: [:atoll, :dot, :l_shape, :s_shape, :square]
 
-  def forested?(island), do:
-    MapSet.equal?(island.coordinates, island.hit_coordinates)
+  def forested?(island), do: MapSet.equal?(island.coordinates, island.hit_coordinates)
 
   defp offsets(:square), do: [{0, 0}, {0, 1}, {1, 1}, {1, 0}]
   defp offsets(:atoll), do: [{0, 0}, {0, 1}, {1, 1}, {2, 0}, {2, 1}]
