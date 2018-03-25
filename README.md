@@ -13,3 +13,4 @@ To format code `mix format`
 - [Island](island.md)
 - Board
 - Rules
+- [Game](game.md)
