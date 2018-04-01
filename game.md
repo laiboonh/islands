@@ -8,7 +8,7 @@ GenServer have 3 moving parts
 
 ## To start a GenServer
 - `GenServer.start(Game, %{})` - starts a GenServer process without links (outside of a supervision tree)
-- `GenServer.start(Game, %{})` - starts a GenServer process linked to the current process
+- `GenServer.start_link(Game, %{})` - starts a GenServer process linked to the current process
 `%{}` is the initial state of the process
 
 ## Mapping between module and callback functions
