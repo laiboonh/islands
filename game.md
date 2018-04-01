@@ -12,7 +12,7 @@ GenServer have 3 moving parts
 `%{}` is the initial state of the process
 
 ## Mapping between module and callback functions
-- `GenServer.start_link` -> `GenServer.init/1`
+- `GenServer.start_link/3` -> `GenServer.init/1`
 - `GenServer.call/3` -> `GenServer.handle_call/3`
 - `GenServer.cast/2` -> `GenServer.handle_cast/2`
 - If we send a message via `Kernal.send/2`, `GenServer.handle_info/2` is triggered 
@@ -62,4 +62,31 @@ iex(12)> GenServer.cast(pid, {:demo_cast, "another value"})
 :ok
 iex(13)> GenServer.call(pid, :demo_call)
 %{test: "another value"}
+```
+
+# Initialise
+`:sys.get_state/1` can be used to get the state of a genserver process
+```
+iex(4)> {:ok, game} = Game.start_link("Frank")
+{:ok, #PID<0.143.0>}
+iex(5)> :sys.get_state
+get_state/1    get_state/2
+iex(5)> :sys.get_state(game)
+%{
+  Rules: %IslandsEngine.Rules{
+    player1: :islands_not_set,
+    player2: :islands_not_set,
+    state: :initialized
+  },
+  player1: %{
+    board: %{},
+    guesses: %IslandsEngine.Guesses{hits: #MapSet<[]>, misses: #MapSet<[]>},
+    name: "Frank"
+  },
+  player2: %{
+    board: %{},
+    guesses: %IslandsEngine.Guesses{hits: #MapSet<[]>, misses: #MapSet<[]>},
+    name: nil
+  }
+}
 ```
