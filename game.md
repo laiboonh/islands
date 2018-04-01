@@ -90,3 +90,5 @@ iex(5)> :sys.get_state(game)
   }
 }
 ```
+
+`Kernal.put_in/2` will tranform values nested in a map and return the whole transformed map
