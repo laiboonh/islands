@@ -12,10 +12,10 @@ GenServer have 3 moving parts
 `%{}` is the initial state of the process
 
 ## Mapping between module and callback functions
-`GenServer.start_link` -> `GenServer.init/1`
-`GenServer.call/3` -> `GenServer.handle_call/3`
-`GenServer.cast/2` -> `GenServer.handle_cast/2`
-* if we send a message via `Kernal.send/2`, `GenServer.handle_info/2` is triggered 
+- `GenServer.start_link` -> `GenServer.init/1`
+- `GenServer.call/3` -> `GenServer.handle_call/3`
+- `GenServer.cast/2` -> `GenServer.handle_cast/2`
+- If we send a message via `Kernal.send/2`, `GenServer.handle_info/2` is triggered 
 
 ## Send message
 ```elixir
@@ -33,8 +33,9 @@ This message has been handled by handle_info/2, matching on :first
 :first
 ```
 # Call
-The middle element is the actual reply, the third element is what we want the state of the GenServer process to be.
+`:demo_call` marks which `handle_call` clause to execute.
 `_from` is a tuple that contains the PID of the calling process. We could use this to send message back. 
+In the return value, the middle element `state` is the actual reply, the third element `state` is what we want the state of the GenServer process to be.
 ```elixir
 def handle_call(:demo_call, _from, state) do
   {:reply, state, state}
